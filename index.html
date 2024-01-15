@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Montserrat:wght@400;600;700&family=Open+Sans&family=Raleway:ital,wght@0,500;0,700;1,500;1,700&family=Roboto&family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Page 1</title>
+</head>
+<body>
+
+<div class="main_block"></div>
+
+<script>
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then((value)=>value.json())
+    .then((users)=>{
+
+        let divMaim=document.querySelector('.main_block');
+        for (const user of users) {
+            let divUser= document.createElement('div')
+            divUser.classList.add('user_block')
+
+            let userNameDiv=document.createElement('div')
+            userNameDiv.classList.add('userNameDiv')
+            userNameDiv.innerText=`${user.id}. ${user.name}`
+
+            let a= document.createElement('a');
+            a.classList.add('user_link');
+            a.innerText='more info'
+            a.href='./user-details.html?id='+JSON.stringify(user);
+
+            divUser.append(userNameDiv,a)
+            divMaim.appendChild(divUser)
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Montserrat:wght@400;600;700&family=Open+Sans&family=Raleway:ital,wght@0,500;0,700;1,500;1,700&family=Roboto&family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Page 2</title>
+</head>
+<body>
+<div class="main_block2">
+    <div id="user_details"></div>
+</div>
+
+<script>
+    let url= new URL(location.href);
+    let userJSON=url.searchParams.get('id');
+    let user=JSON.parse(userJSON);
+
+    let mainDiv=document.querySelector('.main_block2')
+    let divMainDetails=document.getElementById('user_details');
+    function iterator (obj){
+        for (const key in obj) {
+            let divDetails=document.createElement('div');
+            divMainDetails.appendChild(divDetails);
+            divDetails.innerText=`${key}: ${obj[key]}`;
+            if (typeof obj[key]==='object'){
+                divDetails.innerText=`${key}:`
+                iterator(obj[key])
+            }
+        }
+    }
+    iterator(user);
+
+    let butPostUser=document.createElement('button');
+    butPostUser.classList.add('buttonTitlePostOfCurrentUser')
+    butPostUser.innerText="post of current user";
+    mainDiv.appendChild(butPostUser);
+    butPostUser.addEventListener('click', ()=>{
+
+    let divPostsTitles = document.createElement('div');
+        divPostsTitles.classList.add('postsTitles')
+        document.body.appendChild(divPostsTitles);
+
+    fetch(`https://jsonplaceholder.typicode.com/users/${user.id}/posts`)
+        .then(value => value.json())
+        .then((posts)=>{
+            for (const post of posts) {
+                butPostUser.setAttribute('disabled', 'disabled')
+                butPostUser.innerText="no more posts"
+
+                let shortTitle=document.createElement('div')
+                shortTitle.classList.add('shortTitle');
+                divPostsTitles.appendChild(shortTitle)
+
+                for (const key in post) {
+                    if (key==='title'){
+                        let divPost=document.createElement('div');
+                        divPost.classList.add('title')
+                        divPost.innerText=`TITLE:  "${post['title']}"`;
+
+                        let butPostDetail=document.createElement('button');
+                        butPostDetail.classList.add('butPostDetail')
+
+                        butPostDetail.innerText='more...';
+                        butPostDetail.addEventListener('click',()=>{
+                            document.location.href=`post-details.html?USER_ID=` + JSON.stringify(post)
+                        })
+                        shortTitle.append(divPost, butPostDetail);
+                    }
+                }
+            }
+        })
+    })
+</script>
+</body>
+</html>

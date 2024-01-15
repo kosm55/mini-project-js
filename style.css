@@ -1,0 +1,187 @@
+body{
+    width: 100%;
+    margin: 0;
+    background-color: #9a7d46;
+}
+
+/*----------page1 index----------*/
+.main_block{
+    width: 100%;
+    height: 700px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.user_block{
+    background-color: #7f8e86;
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: 10px 10px 5px 0 rgba(0,0,0,0.75);
+    width: 40%;
+    height: 100px;
+    font-family: 'Rubik', sans-serif;;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.userNameDiv{
+    font-family: 'Rubik', sans-serif;
+    color: #2b2d30;
+    font-size: 20px;
+    font-weight: bold;
+}
+.user_link{
+    text-decoration: none;
+    font-family: 'Rubik', sans-serif;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+.user_link:hover{
+    color: #625b43;
+    cursor: pointer;
+}
+
+/*----------page2 user-details----------*/
+
+.main_block2{
+    width: 100%;
+    height: 450px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+#user_details{
+    width: 40%;
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    /*align-items: center;*/
+    flex-direction: column;
+    background-color: #7f8e86;
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: 10px 10px 5px 0 rgba(0,0,0,0.75);
+    padding: 10px 0 10px 30px;
+}
+.buttonTitlePostOfCurrentUser{
+    width: 90%;
+    background-color: #7f8e86;
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: 10px 10px 5px 0 rgba(0,0,0,0.75);
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.buttonTitlePostOfCurrentUser:hover{
+    background-color: #46574e;
+    cursor: pointer;
+}
+.postsTitles{
+    /*background-color: #46574e;*/
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.shortTitle{
+    width: 18%;
+    height: 80px;
+    margin: 10px 0;
+    background-color: #7f8e86;
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: 10px 10px 5px 0 rgba(0,0,0,0.75);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.title{
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    font-style: italic;
+    color: darkslategrey;
+    padding: 5px 0 0 5px;
+    /*згортає коли більше ніж два рядки*/
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+}
+.butPostDetail{
+    width: 22%;
+    background-color: #a9beb4;
+    border: none;
+    text-decoration: none;
+    margin: 0 0 5px 70% ;
+    border-radius: 3px;
+    font-family: 'Rubik', sans-serif;
+
+}
+.butPostDetail:hover{
+    background-color: #46574e;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+/*----------page3 post-details----------*/
+h2{
+    font-family: 'Rubik', sans-serif;
+    color: white;
+}
+.main_block3{
+    width: 98%;
+    /*height: 500px;*/
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+}
+.postInfo{
+    /*width: 60%;*/
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: column;
+    background-color: #7f8e86;
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: 10px 10px 5px 0 rgba(0,0,0,0.75);
+    padding: 10px;
+}
+.commentInfo{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.divComment{
+    width: 22%;
+    margin: 0.8%;
+    background-color: #7f8e86;
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: 10px 10px 5px 0 rgba(0,0,0,0.75);
+    padding: 5px;
+    font-family: 'Inter', sans-serif;
+    font-style: italic;
+    font-size: 14px;
+}
+
+
